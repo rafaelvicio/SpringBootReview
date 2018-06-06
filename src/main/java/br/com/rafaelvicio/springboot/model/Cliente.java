@@ -26,9 +26,67 @@ public class Cliente {
     private String nome;
 
     @NotNull
-    @Length(min = 2, max = 300,message="O tamanho do endereço deve ser entre {min} e {max}caracteres")private String endereco;
+    @Length(min = 2, max = 300,message="O tamanho do endereço deve ser entre {min} e {max}caracteres")
+    private String endereco;
+
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
     @Cascade(CascadeType.ALL)
     private List<Pedido> pedidos;
+
+    /**
+     * @return the id
+     */
+    public Long getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /**
+     * @return the nome
+     */
+    public String getNome() {
+        return nome;
+    }
+
+    /**
+     * @param nome the nome to set
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
+     * @return the endereco
+     */
+    public String getEndereco() {
+        return endereco;
+    }
+
+    /**
+     * @param endereco the endereco to set
+     */
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    /**
+     * @return the pedidos
+     */
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    /**
+     * @param pedidos the pedidos to set
+     */
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 
 }
